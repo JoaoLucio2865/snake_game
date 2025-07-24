@@ -16,30 +16,28 @@ class SnakeSprites:
         tx, ty = 1, 1
 
         if index == 0:
-            # Cabeça
             if next_seg is None:
                 tx, ty = 3, 0
             else:
-                if seg['y'] < next_seg['y']:  # up
+                if seg['y'] < next_seg['y']:
                     tx, ty = 3, 0
-                elif seg['x'] > next_seg['x']:  # right
+                elif seg['x'] > next_seg['x']:
                     tx, ty = 4, 0
-                elif seg['y'] > next_seg['y']:  # down
+                elif seg['y'] > next_seg['y']:
                     tx, ty = 4, 1
-                elif seg['x'] < next_seg['x']:  # left
+                elif seg['x'] < next_seg['x']:
                     tx, ty = 3, 1
         elif index == length -1:
-            # Cauda
             if prev_seg is None:
                 tx, ty = 3, 2
             else:
-                if prev_seg['y'] < seg['y']:  # up
+                if prev_seg['y'] < seg['y']: 
                     tx, ty = 3, 2
-                elif prev_seg['x'] > seg['x']:  # right
+                elif prev_seg['x'] > seg['x']: 
                     tx, ty = 4, 2
-                elif prev_seg['y'] > seg['y']:  # down
+                elif prev_seg['y'] > seg['y']:
                     tx, ty = 4, 3
-                elif prev_seg['x'] < seg['x']:  # left
+                elif prev_seg['x'] < seg['x']:
                     tx, ty = 3, 3
         else:
             if prev_seg and next_seg:
